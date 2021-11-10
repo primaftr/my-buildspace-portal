@@ -11,12 +11,7 @@ import { Program, Provider, web3 } from "@project-serum/anchor";
 // Constants
 const TWITTER_HANDLE = "primafira";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const TEST_GIFS = [
-  "https://media.giphy.com/media/oy5ZjbSP1gKXE3Zkxk/giphy.gif",
-  "https://media.giphy.com/media/2q3hdrApY32UXzmb6H/giphy.gif",
-  "https://media.giphy.com/media/R3XvopB3dbfyiP4lPI/giphy.gif",
-  "https://media.giphy.com/media/bwVQs4yncIDf5YQStL/giphy.gif",
-];
+
 
 // SystemProgram is a reference to the Solana runtime!
 const { SystemProgram } = web3;
@@ -149,7 +144,7 @@ const App = () => {
     </button>
   );
   const renderConnectedContainer = () => {
-    console.log(gifList);
+    await getGifList();
     if (gifList === undefined) {
       return (
         <div className="connected-container">
@@ -190,7 +185,7 @@ const App = () => {
             {/* We use index as the key instead, also, the src is now item.gifLink */}
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
-                <img src={item.gifLink} />
+                <img alt="gif" src={item.gifLink} />
               </div>
             ))}
           </div>
@@ -223,7 +218,6 @@ const App = () => {
 
       // Set state
       setGifList();
-      getGifList();
     }
   }, [walletAddress]);
   useEffect(() => {
