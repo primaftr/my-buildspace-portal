@@ -19,7 +19,7 @@ const TEST_GIFS = [
 ];
 
 // SystemProgram is a reference to the Solana runtime!
-const { SystemProgram, Keypair } = web3;
+const { SystemProgram } = web3;
 
 // Create a keypair for the account that will hold the GIF data.
 const arr = Object.values(kp._keypair.secretKey);
@@ -139,15 +139,7 @@ const App = () => {
   //     console.log("Empty input. Try again.");
   //   }
   // };
-  const gifRender = () => {
-    <div className="gif-grid">
-      {TEST_GIFS.map((gif) => (
-        <div className="gif-item" key={gif}>
-          <img src={gif} alt={gif} height="100 px" />
-        </div>
-      ))}
-    </div>;
-  };
+ 
   const renderNotConnectedContainer = () => (
     <button
       className="cta-button connect-wallet-button"
