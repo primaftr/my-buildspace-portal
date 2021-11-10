@@ -144,7 +144,7 @@ const App = () => {
     </button>
   );
   const renderConnectedContainer = () => {
-    await getGifList();
+    getGifList();
     if (gifList === undefined) {
       return (
         <div className="connected-container">
